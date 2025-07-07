@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup mdBook
       uses: peaceiris/actions-mdbook@v1
@@ -21,19 +21,18 @@ jobs:
 
     - run: mdbook build
 
-    - name: Install Pandoc
+    - name: Install Pandoc and Noto CJK Fonts
       run: |
         sudo apt-get update
-        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-noto-cjk
+        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-noto-cjk texlive-lang-cjk # Added texlive-lang-cjk
 
     - name: Create PDF directory
       run: mkdir -p pdf
 
     - name: Convert HTML to PDF using Pandoc
       run: |
-        find book -name "*.html" -print0 | xargs -0 -I {} pandoc {} -o pdf/$(basename {} .html).pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR"
-        # Create a single combined PDF (optional, might need further refinement for table of contents etc.)
-        # pandoc book/**/*.html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR" --toc
+        # Convert the main index.html (entire book) to a single PDF
+        pandoc book/index.html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR" --toc
 
     - name: Upload PDF artifact (for pull requests and pushes to main)
       if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
@@ -44,15 +43,8 @@ jobs:
 
     - name: Create Release and Upload PDF
       if: startsWith(github.ref, 'refs/tags/v')
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: pdf/*.pdf
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main' # Deploy to GitHub Pages only on push to main
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./book
