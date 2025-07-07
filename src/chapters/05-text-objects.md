@@ -1,42 +1,42 @@
-# Text Objects
-Text objects are what made vim superior from other editors for me by any means.
+# 텍스트 객체 (Text Objects)
+텍스트 객체는 어떤 면에서든 vim을 다른 편집기보다 우월하게 만들어 준 기능입니다.
 
-Text objects are "movements" that only work after an operator. \
-A text object consists of a start and an end. \
-The default and the most used ones are `inner`/`a` + `X`.
+텍스트 객체는 연산자 뒤에서만 작동하는 "이동"입니다. \
+텍스트 객체는 시작과 끝으로 구성됩니다. \
+기본적이고 가장 많이 사용되는 것은 `inner`/`a` + `X`입니다.
 
-Modifiers:
-* `i` - as **I**nner.
-* `a` - as **A**.
+수식어:
+* `i` - **I**nner (안쪽).
+* `a` - **A** (하나의).
 
-For example:
-* `yiw` - `yank inner word`, will yank the current word.
-* `ciw` - `change inner word`, will change the current word.
-* `daw` - `delete a word`, will delete the current word and the space before it, removes a word from a sentence.
-* `ci'` - `change inner '`, will change the inner text inside the next/current pair of `'` aka a string.
-* `ca(` - `delete a (`, will delete the text inside and the `(` of the next/current pair of `(`.
+예를 들어:
+* `yiw` - `yank inner word` (안쪽 단어 복사), 현재 단어를 복사합니다.
+* `ciw` - `change inner word` (안쪽 단어 변경), 현재 단어를 변경합니다.
+* `daw` - `delete a word` (단어 삭제), 현재 단어와 그 앞의 공백을 삭제하여 문장에서 단어를 제거합니다.
+* `ci'` - `change inner '` (안쪽 ' 변경), 다음/현재 `'` 쌍 안의 텍스트, 즉 문자열을 변경합니다.
+* `ca(` - `delete a (` (`(` 삭제), 다음/현재 `(` 쌍 안의 텍스트와 `(`를 삭제합니다.
 
-You can do these actions for every pair, `(`/`{`/`'`/`"`. \
-You can do these actions for html tags(`t`), paragraphs(`p`), and more.
+모든 쌍에 대해 이러한 작업을 수행할 수 있습니다: `(`/`{`/`'`/`"`. \
+HTML 태그(`t`), 문단(`p`) 등에도 이러한 작업을 수행할 수 있습니다.
 
-You can repeat the action when entering a number before, e.g: `3daw` deletes the current word and the next 2.
+앞에 숫자를 입력하여 작업을 반복할 수 있습니다. 예: `3daw`는 현재 단어와 다음 두 단어를 삭제합니다.
 
-Feel free to enter visual mode and test how it works.
+비주얼 모드로 들어가서 어떻게 작동하는지 자유롭게 테스트해 보세요.
 
-You can read more about this at `:help text-objects`.
+이에 대한 자세한 내용은 `:help text-objects`에서 읽을 수 있습니다.
 
 ---
 
-One of my favorite text objects is the `paragraph`, it makes editing code feel so natural.
+제가 가장 좋아하는 텍스트 객체 중 하나는 `paragraph` (문단)입니다. 코드를 편집하는 것이 매우 자연스럽게 느껴집니다.
 
-If you want to change the order of `boo` and `goo`, you can you delete the `goo` paragraph with `dap`, go back a paragraph with `{` and paste the deleted paragraph with `p`.
+`boo`와 `goo`의 순서를 바꾸고 싶다면, `dap`로 `goo` 문단을 삭제하고, `{`로 이전 문단으로 돌아가서 삭제된 문단을 `p`로 붙여넣을 수 있습니다.
 ```python
 def foo():
 	result = boo()
 	if result is not None:
 		return result
 	
-	result = goo() # <--- cursor here
+	result = goo() # <--- 커서 위치
 	if result is not None:
 		return result
 	
@@ -45,33 +45,32 @@ def foo():
 
 ---
 
-## Treesitter Text Objects
-[nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) is an awesome/must have plugin that creates text-objects from the treesitter query, which means text-objects for an actual part of your code!
+## Treesitter 텍스트 객체
+[nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)는 treesitter 쿼리에서 텍스트 객체를 생성하는 멋진/필수 플러그인입니다. 즉, 실제 코드 부분에 대한 텍스트 객체입니다!
 
-For the config I use, `f` is a function, so if I want to change the current content of the function I am on, I hit `cif`, `change inner function`, and you can do this on other code objects.
+제가 사용하는 설정에서 `f`는 함수이므로, 현재 있는 함수의 내용을 변경하고 싶으면 `cif` (`change inner function`)를 누릅니다. 다른 코드 객체에 대해서도 이 작업을 수행할 수 있습니다.
 
-It changes the way you think about editing code, with code object movements rather than how to move the cursor and to where. \
-For example, change the 3rd argument in the next function.
+커서를 어디로 어떻게 옮길지가 아니라 코드 객체 이동으로 코드 편집에 대한 생각을 바꾸게 합니다. \
+예를 들어, 다음 함수의 세 번째 인수를 변경합니다.
 ```python
 def foo(a: int, b: Any, c: Tuple[int, Optional[str]]):
-	pass # <--- cursor here
+	pass # <--- 커서 위치
 ```
-You can use `[m` to move up to the function signature, then `]a` 3 times (unfortunately you can't do `3]a` to do it [yet](https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/231)), then you can press `cia` to keep the `,` but change the content of the argument or you can press `cad` to delete the entire argument.
+`[m`을 사용하여 함수 시그니처로 이동한 다음, `]a`를 3번 누르고 (안타깝게도 [아직](https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/231) `3]a`를 수행할 수는 없습니다), 그런 다음 `cia`를 눌러 `,`는 유지하지만 인수의 내용을 변경하거나 `cad`를 눌러 전체 인수를 삭제할 수 있습니다.
 
-In a standard editor you would need to go the signature manually or using reverse search, hold `ctrl` and hit the arrows until you reach `c`, hold `ctrl+shift` and hitting right arrow 9 times (depends on the editor, tested on sublime), that's tedious.
+표준 편집기에서는 시그니처로 수동으로 이동하거나 역방향 검색을 사용하고, `ctrl`을 누른 상태에서 화살표를 눌러 `c`에 도달한 다음, `ctrl+shift`를 누른 상태에서 오른쪽 화살표를 9번 눌러야 합니다 (편집기에 따라 다름, sublime에서 테스트). 이는 지루한 작업입니다.
 
-
-It changed the way I think about editing code, it allows me to think with elements from the code, `go to next/prev function`, `yank inner function`, `delete a function`, `change inner argument`, rather thinking how to move the cursor which relates to the code elements.
+코드 요소와 관련된 커서 이동 방법을 생각하는 대신, 코드의 요소(`다음/이전 함수로 이동`, `안쪽 함수 복사`, `함수 삭제`, `안쪽 인수 변경`)로 생각하게 되어 코드 편집에 대한 제 생각을 바꾸었습니다.
 
 ---
 
-### Config
-My config (adds pair movement as well):
+### 설정 (Config)
+제 설정 (쌍 이동도 추가):
 ```lua
 textobjects = {
 	move = {
 		enable = true,
-		set_jumps = true, -- whether to set jumps in the jumplist
+		set_jumps = true, -- 점프 목록에 점프를 설정할지 여부
 		goto_next_start = {
 			["]m"] = "@function.outer",
 			["gj"] = "@function.outer",
@@ -114,15 +113,15 @@ textobjects = {
 			["al"] = "@loop.outer",
 			["il"] = "@loop.inner",
 			["a/"] = "@comment.outer",
-			["i/"] = "@comment.outer", -- no inner for comment
-			["aa"] = "@parameter.outer", -- parameter -> argument
+			["i/"] = "@comment.outer", -- 주석에는 inner 없음
+			["aa"] = "@parameter.outer", -- 매개변수 -> 인수
 			["ia"] = "@parameter.inner",
 		},
 	},
 },
 ```
 
-For LunarVim:
+LunarVim용:
 ```lua
 lvim.builtin.treesitter.textobjects.select = {
 	enable = true,
@@ -137,14 +136,14 @@ lvim.builtin.treesitter.textobjects.select = {
 		["al"] = "@loop.outer",
 		["il"] = "@loop.inner",
 		["a/"] = "@comment.outer",
-		["i/"] = "@comment.outer", -- no inner for comment
-		["aa"] = "@parameter.outer", -- parameter -> argument
+		["i/"] = "@comment.outer", -- 주석에는 inner 없음
+		["aa"] = "@parameter.outer", -- 매개변수 -> 인수
 		["ia"] = "@parameter.inner",
 	},
 }
 lvim.builtin.treesitter.textobjects.move = {
 	enable = true,
-	set_jumps = true, -- whether to set jumps in the jumplist
+	set_jumps = true, -- 점프 목록에 점프를 설정할지 여부
 	goto_next_start = {
 		["]m"] = "@function.outer",
 		["gj"] = "@function.outer",

@@ -1,139 +1,139 @@
-# Movements and Operators
-vim is built on actions that are mostly built on 2 types, an operator and a movement.
+# 이동과 연산자
+vim은 대부분 연산자와 이동이라는 두 가지 유형으로 구성된 동작을 기반으로 합니다.
 
-## Basic binds
-* `i` - enter **I**nsert mode
-* `a` - enter insert mode **A**fter the cursor
-* `I` - enter **I**nsert mode at the beginning of the line
-* `A` - enter insert mode at the end of the line (same as `a` but for the entire line)
-* `o` - insert new line below
-* `O` - insert new line above
-* `u` - **U**ndo, check out [undotree](https://github.com/mbbill/undotree)
-* `Ctrl-r` - **R**edo
-* `zz` - Recenter the screen, there are more binds for screen actions but this is the most important one
+## 기본 바인딩
+* `i` - **I**nsert (입력) 모드로 전환
+* `a` - 커서 **A**fter (뒤)에서 입력 모드로 전환
+* `I` - 줄의 **I**nsert (처음)에서 입력 모드로 전환
+* `A` - 줄의 끝에서 입력 모드로 전환 (전체 줄에 대한 `a`와 동일)
+* `o` - 아래에 새 줄 삽입
+* `O` - 위에 새 줄 삽입
+* `u` - **U**ndo (실행 취소), [undotree](https://github.com/mbbill/undotree) 확인
+* `Ctrl-r` - **R**edo (다시 실행)
+* `zz` - 화면 중앙 정렬, 화면 동작에 대한 더 많은 바인딩이 있지만 이것이 가장 중요한 것입니다.
 
-## Basic movements
-#### Arrows
-* `h` - left
-* `j` - down
-* `k` - up
-* `l` - right
+## 기본 이동
+#### 화살표
+* `h` - 왼쪽
+* `j` - 아래
+* `k` - 위
+* `l` - 오른쪽
 
-It takes some time getting used to it but it's worth it, I recommend disabling the arrow keys for movement and try the game `hjkl` in [vim-be-good](https://github.com/ThePrimeagen/vim-be-good).
+익숙해지는 데 시간이 좀 걸리지만 그만한 가치가 있습니다. 이동 시 화살표 키를 비활성화하고 [vim-be-good](https://github.com/ThePrimeagen/vim-be-good)에서 `hjkl` 게임을 해보는 것을 추천합니다.
 
 ```lua
--- Disable arrows movement
+-- 화살표 이동 비활성화
 map('', '<Up>', '<Nop>')
 map('', '<Down>', '<Nop>')
 map('', '<Left>', '<Nop>')
 map('', '<Right>', '<Nop>')
 ```
 
-### Multiply Movement
-You can multiply every movement by entering a number before the movement. \
-For example: `3j` will jump 3 lines down
+### 이동 반복
+이동 앞에 숫자를 입력하여 모든 이동을 반복할 수 있습니다. \
+예를 들어: `3j`는 3줄 아래로 점프합니다.
 
-#### Words
-* `w` - jump **W**ord forward
-* `b` - jump word **B**ackwards
-* `e` - jump forward to the **E**nd of the word
-* `ge` - jump to the **E**nd of the previous word
+#### 단어 단위 이동
+* `w` - 다음 **W**ord (단어)의 시작으로 점프
+* `b` - 이전 단어의 **B**ackwards (시작)으로 점프
+* `e` - 현재 또는 다음 단어의 **E**nd (끝)으로 점프
+* `ge` - 이전 단어의 **E**nd (끝)으로 점프
 
-Capital will change the behavior from `word` to `WORD`, read `:help word` and `:help WORD` to understand the differences
+대문자는 동작을 `word`에서 `WORD`로 변경합니다. 차이점을 이해하려면 `:help word`와 `:help WORD`를 읽어보세요.
 
-#### Generics
-* `0` - go to the beginning of the line
-* `$` - go to the end of the line
-* `<C-u>` - go **U**p half a page
-* `<C-d>` - go **D**own half a page
-* `%` - jump to the pair of the bracket/quote/ifdef your cursor on
-* `<C-o>` - jump to the previous position you jumped from (you can do it multiple times)
-* `<C-i>` - jump to the next position you jumped to (you can do it multiple times)
+#### 일반 이동
+* `0` - 줄의 시작으로 이동
+* `$` - 줄의 끝으로 이동
+* `<C-u>` - 반 페이지 **U**p (위)로 이동
+* `<C-d>` - 반 페이지 **D**own (아래)로 이동
+* `%` - 커서가 있는 괄호/따옴표/ifdef의 쌍으로 점프
+* `<C-o>` - 이전에 점프했던 위치로 점프 (여러 번 가능)
+* `<C-i>` - 다음 점프 위치로 점프 (여러 번 가능)
 
-#### Pair Movments
-The standard way to jump forward to something is `]` and backward is `[`.
+#### 쌍 이동 (Pair Movements)
+앞으로 점프하는 표준 방법은 `]`이고 뒤로는 `[`입니다.
 
-Some examples
-* `]m` / `[m` - Jump to **M**ethod
-* `]]` / `[[` - Jump to section
-* `}` / `{` - Jump to paragraph
-* `]c` / `[c` - Jump to diff (**C**hange)
+몇 가지 예시
+* `]m` / `[m` - **M**ethod (메서드)로 점프
+* `]]` / `[[` - 섹션으로 점프
+* `}` / `{` - 문단으로 점프
+* `]c` / `[c` - diff (**C**hange, 변경 사항)로 점프
 
-I suggest to install [vim-unimpaired](https://github.com/tpope/vim-unimpaired) which adds more pair movements.
+더 많은 쌍 이동을 추가하는 [vim-unimpaired](https://github.com/tpope/vim-unimpaired)를 설치하는 것을 제안합니다.
 
 ---
 
-## Searching
-### Search across the file
-These are **not** movements!
-* `/` - to start a forward search
-* `?` - to start a backward search
-* `n` - go to the **N**ext occurrence
-* `N` - go to the previous occurrence
-* `*` - forward search the current word under cursor
-* `#` - backward search the current word under cursor
+## 검색
+### 파일 전체 검색
+이것들은 이동이 **아닙니다**!
+* `/` - 순방향 검색 시작
+* `?` - 역방향 검색 시작
+* `n` - 다음 일치 항목으로 이동 (**N**ext)
+* `N` - 이전 일치 항목으로 이동
+* `*` - 커서 아래 현재 단어 순방향 검색
+* `#` - 커서 아래 현재 단어 역방향 검색
 
-I recommend to remap `n` and `N` to `nzz` and `Nzz`, `zz` centers the screen by the line you are on, these binds will go to the next/prev occurrence and center the screen.
+`n`과 `N`을 `nzz`와 `Nzz`로 다시 매핑하는 것을 추천합니다. `zz`는 현재 줄을 기준으로 화면을 중앙에 맞추므로, 이 바인딩은 다음/이전 일치 항목으로 이동하고 화면을 중앙에 맞춥니다.
 ```lua
-map('n', 'n', 'nzz') -- Auto recenter after n
-map('n', 'N', 'Nzz') -- Auto recenter after N
+map('n', 'n', 'nzz') -- n 이후 자동 중앙 정렬
+map('n', 'N', 'Nzz') -- N 이후 자동 중앙 정렬
 ```
 
-If you enabled `opt.ignorecase` you can add `\C` at the end of your search to re-enable case.
+`opt.ignorecase`를 활성화한 경우 검색 끝에 `\C`를 추가하여 대소문자 구분을 다시 활성화할 수 있습니다.
 
-### Quick search
-These are movements! You will need to enter a `char` after the quick search key.
-* `f` - jump to the next `char`, I remember it as **F**ind
-* `F` - jump to the previous `char`, I remember it as **F**ind
-* `t` - jump **T**ill the next `char` (1 char before the occurrence)
-* `T` - jump **T**ill the prev `char` (1 char after the occurrence)
+### 빠른 검색
+이것들은 이동입니다! 빠른 검색 키 다음에 `문자`를 입력해야 합니다.
+* `f` - 다음 `문자`로 점프, **F**ind (찾기)로 기억합니다.
+* `F` - 이전 `문자`로 점프, **F**ind (찾기)로 기억합니다.
+* `t` - 다음 `문자` **T**ill (까지) 점프 (일치 항목 1 문자 앞)
+* `T` - 이전 `문자` **T**ill (까지) 점프 (일치 항목 1 문자 뒤)
 
-These movements are very useful to manipulate text in the same line. This is the reason I enable `opt.wrap` in vim.
+이러한 이동은 같은 줄의 텍스트를 조작하는 데 매우 유용합니다. 이것이 제가 vim에서 `opt.wrap`을 활성화하는 이유입니다.
 
-I highly recommend installing [clever-f.vim](https://github.com/rhysd/clever-f.vim) it will help you get used to these awesome movements fast.
-
----
-
-## Operators
-The main ones
-* `y` - **Y**ank (copy)
-* `d` - **D**elete
-* `c` - **C**hange, delete the text and enters insert mode
-* `<` - remove indentation (left)
-* `>` - add indentation (right)
-* `=` - auto indent
-* `gc` - Comment/Uncomment, done with [Comment.nvim](https://github.com/numToStr/Comment.nvim)
-
-Capital (shift) will apply the operation starting from the cursor to the end of the line, e.g: `D` deletes the line from the cursor to the end of the line. \
-Repeating the operator key will apply the operation for the entire line, e.g: `yy` yanks the entire current line.
+[clever-f.vim](https://github.com/rhysd/clever-f.vim)을 설치하는 것을 강력히 추천합니다. 이 멋진 이동에 빠르게 익숙해지는 데 도움이 될 것입니다.
 
 ---
 
-## Action
-Action is an `operator + movement` \
-For example: 
-* `y3k` - yank 2 lines above the cursor, including the current line.
-* `ct,` - change the text until `,`, very useful to change function arguments and more.
+## 연산자 (Operators)
+주요 연산자
+* `y` - **Y**ank (복사)
+* `d` - **D**elete (삭제)
+* `c` - **C**hange (변경), 텍스트를 삭제하고 입력 모드로 전환
+* `<` - 들여쓰기 제거 (왼쪽)
+* `>` - 들여쓰기 추가 (오른쪽)
+* `=` - 자동 들여쓰기
+* `gc` - 주석 처리/해제, [Comment.nvim](https://github.com/numToStr/Comment.nvim)으로 수행
 
-This is why you **must** have `relativenumber` on, it will make your life much easier.
-
-### "Special" actions
-* Hit the operator twice to activate it on the current line. `yy` will yank the entire line you are on.
-* `Shift+operator` to activate the operator from the cursor the end of the line. `C` will change the line from the cursor to the end.
-
-### One char actions
-Actions without movement
-* `x` - delete the char you are on.
-* `X` - delete 1 char before the cursor.
-* `r` - **R**eplace 1 char
+대문자(shift)는 커서부터 줄 끝까지 연산을 적용합니다. 예: `D`는 커서부터 줄 끝까지 삭제합니다. \
+연산자 키를 반복하면 전체 줄에 연산이 적용됩니다. 예: `yy`는 현재 줄 전체를 복사합니다.
 
 ---
 
-## How should I remember all those binds?
-Think of a key sequence as an English sentence.
+## 액션 (Action)
+액션은 `연산자 + 이동`입니다. \
+예를 들어:
+* `y3k` - 현재 줄을 포함하여 커서 위 2줄을 복사합니다.
+* `ct,` - `,`까지 텍스트를 변경합니다. 함수 인수 등을 변경하는 데 매우 유용합니다.
 
-For example: when I'm using `y3j`/`y3<Enter>` I'll think of it as `yank 3 down`, in my mind I "speak" with the editor rather than remembering which keys to press.
+이것이 바로 `relativenumber`를 반드시 켜야 하는 이유입니다. 여러분의 삶을 훨씬 쉽게 만들어 줄 것입니다.
+
+### "특별한" 액션
+* 현재 줄에서 연산자를 활성화하려면 연산자를 두 번 누릅니다. `yy`는 현재 줄 전체를 복사합니다.
+* 커서부터 줄 끝까지 연산자를 활성화하려면 `Shift+연산자`를 누릅니다. `C`는 커서부터 줄 끝까지 변경합니다.
+
+### 한 글자 액션
+이동 없는 액션
+* `x` - 현재 커서 위치의 글자를 삭제합니다.
+* `X` - 커서 앞의 한 글자를 삭제합니다.
+* `r` - 한 글자를 **R**eplace (대체)합니다.
 
 ---
 
-There are many more movements and operators but these are the ones I feel is the most important, it takes some time getting used to work with this method, but once you understand it, it'll stick well.
+## 이 모든 바인딩을 어떻게 기억해야 할까요?
+키 시퀀스를 영어 문장처럼 생각하세요.
+
+예를 들어: `y3j`/`y3<Enter>`를 사용할 때 저는 `yank 3 down` (아래로 3줄 복사)이라고 생각합니다. 어떤 키를 눌러야 하는지 기억하기보다는 편집기와 "대화"한다고 생각합니다.
+
+---
+
+더 많은 이동과 연산자가 있지만 이것들이 가장 중요하다고 생각하는 것들입니다. 이 방법으로 작업하는 데 익숙해지는 데 시간이 좀 걸리지만, 일단 이해하면 잘 익숙해질 것입니다.

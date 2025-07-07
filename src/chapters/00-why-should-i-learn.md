@@ -1,79 +1,79 @@
-# Why should I learn nvim?
-As a professional, you are going to spend a lot of time on your computer, especially editing code. You want do it in the most fun and efficient way.
-nvim is fun: fun to learn, fun to write with, fun to improve at and most importantly - it is very very efficient.
+# 왜 nvim을 배워야 할까요?
+전문가로서, 여러분은 컴퓨터 앞에서 많은 시간을 보내게 될 것이고, 특히 코드 편집에 많은 시간을 할애할 것입니다. 가장 재미있고 효율적인 방법으로 이 작업을 하고 싶을 것입니다.
+nvim은 재미있습니다: 배우는 것도 재미있고, 코드를 작성하는 것도 재미있고, 실력이 향상되는 것도 재미있으며, 가장 중요한 것은 매우 매우 효율적이라는 것입니다.
 
-#### You can use vim with any keyboard
-vim gives you the option to use only the basic keyboard keys: the alphabetical keys, ctrl, alt, shift, escape, enter. \
-You don't need to find where is end, pageup/down and home each time you switch a keyboard/laptop.
+#### 어떤 키보드에서도 vim을 사용할 수 있습니다
+vim은 알파벳 키, ctrl, alt, shift, escape, enter와 같은 기본적인 키보드 키만 사용할 수 있는 옵션을 제공합니다. \
+키보드나 노트북을 바꿀 때마다 end, pageup/down, home 키가 어디에 있는지 찾을 필요가 없습니다.
 
-If you can type on a keyboard, you can use vim the way you're used to.
+키보드로 타이핑할 수 있다면, 익숙한 방식으로 vim을 사용할 수 있습니다.
 
-#### Keep your hands on the keyboard
-vim can be used without a mouse at all, and it's even recommended to use it this way, as it will "force" you to stay in the "flow" while programming without needing to move your hand over to the mouse and back to the keyboard.
+#### 키보드에서 손을 떼지 마세요
+vim은 마우스 없이도 전혀 사용할 수 있으며, 심지어 이런 방식으로 사용하는 것이 권장됩니다. 프로그래밍 중에 손을 마우스로 옮겼다가 다시 키보드로 가져올 필요 없이 "흐름"을 유지하도록 "강제"하기 때문입니다.
 
-vim is designed to be used with [type touching](https://www.ratatype.com/static/i/learn/keyboard/en/keyboard.webp).\
-The important binds are on/next to the keys your hands should always be on: `asdf jkl;`. \
-It isn't a must to touch type (I don't touch type 100%) but I recommend trying to switch anyways.
+vim은 [터치 타이핑](https://www.ratatype.com/static/i/learn/keyboard/en/keyboard.webp)과 함께 사용하도록 설계되었습니다.\
+중요한 바인딩은 손이 항상 있어야 하는 키(`asdf jkl;`) 위나 옆에 있습니다. \
+터치 타이핑이 필수적인 것은 아니지만(저는 100% 터치 타이핑을 하지는 않습니다), 어쨌든 전환해 보시는 것을 추천합니다.
 
-##### Disclaimer
-You can use a mouse. \
-I configured a mouse to allow "guests" to show me stuff in my workstation. \
-I use a mouse to **read** code, personally I find it more convenient. \
-I use a mouse when showing someone in my workstation so they can follow along.
+##### 면책 조항
+마우스를 사용할 수 있습니다. \
+저는 "손님"이 제 워크스테이션에서 무언가를 보여줄 수 있도록 마우스를 설정해 두었습니다. \
+저는 코드를 **읽을 때** 마우스를 사용합니다. 개인적으로 더 편리하다고 생각합니다. \
+제 워크스테이션에서 다른 사람에게 무언가를 보여줄 때, 그들이 따라올 수 있도록 마우스를 사용합니다.
 
-#### The right way to program
-It's a strong saying but I'm convinced that `nvim` is the right way to program. 
+#### 올바른 프로그래밍 방식
+강한 주장이지만, 저는 `nvim`이 올바른 프로그래밍 방식이라고 확신합니다.
 
-When you're using vim, you "talk" to the editor rather than "move" it. \
-Imagine, instead of asking your friend to pour you a glass of water, you would give instructions to your friend on how to pour you a glass of water, which would look like something like this:
-1. Open the bottle
-1. Grab the glass
-1. Grab the bottle
-1. Make an angle with the bottle towards the glass
-1. Put down the bottle
-1. Close the bottle
+vim을 사용할 때, 여러분은 편집기를 "움직이는" 것이 아니라 편집기와 "대화"합니다. \
+친구에게 물 한 잔을 따라 달라고 부탁하는 대신, 친구에게 물 한 잔을 따르는 방법에 대한 지시를 내린다고 상상해 보세요. 다음과 같을 것입니다:
+1. 병뚜껑을 여세요
+1. 컵을 잡으세요
+1. 병을 잡으세요
+1. 병을 컵 쪽으로 기울이세요
+1. 병을 내려놓으세요
+1. 병뚜껑을 닫으세요
 
-Wouldn't it be easier to just say "Hey, can you pour me glass of water?"
-Well, that how it feels to use other editors after you're using vim, vim lets you "talk" to the editor.
+"이봐, 물 한 잔 따라줄 수 있어?"라고 말하는 것이 더 쉽지 않을까요?
+vim을 사용하다가 다른 편집기를 사용하면 바로 그런 느낌이 듭니다. vim은 편집기와 "대화"할 수 있게 해줍니다.
 
-#### Feel "at home" everywhere
-Most TUIs programs support `vim` binds which will make you feel fast in any program that you usually use, `less`, `man`, `tmux` and many more.
+#### 어디서든 "집처럼" 편안하게
+대부분의 TUI 프로그램은 `vim` 바인딩을 지원하여 `less`, `man`, `tmux` 등 평소 사용하는 어떤 프로그램에서든 빠르게 작업할 수 있게 해줍니다.
 
-You can feel "at home" in browsers too, with the [vimium extension](https://addons.mozilla.org/he/firefox/addon/vimium-ff/)
+[vimium 확장 프로그램](https://addons.mozilla.org/he/firefox/addon/vimium-ff/)을 사용하면 브라우저에서도 "집처럼" 편안함을 느낄 수 있습니다.
 
-Edit files through `ssh` with ease
+`ssh`를 통해 파일을 쉽게 편집하세요.
 
-#### Lightweight and Native
-nvim is lightweight, starts up fast, renders fast and a lot of the plugins tend to use a strong native binary to run the heavyweight tasks. \
-For example, to search for text across the project [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) runs [ripgrep](https://github.com/BurntSushi/ripgrep).
+#### 가볍고 네이티브함
+nvim은 가볍고, 빠르게 시작되며, 렌더링도 빠릅니다. 또한 많은 플러그인이 무거운 작업을 실행하기 위해 강력한 네이티브 바이너리를 사용하는 경향이 있습니다. \
+예를 들어, 프로젝트 전체에서 텍스트를 검색하기 위해 [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)은 [ripgrep](https://github.com/BurntSushi/ripgrep)을 실행합니다.
 
-#### Rich plugin ecosystem
-nvim has a huge community that develops plugins for everything you can and can't imagine. \
-nvim doesn't miss on any IDE feature that other IDEs have to offer. \
-nvim plugins are the first to "evolve" when a new tech is coming to the IDE world, the nvim community is the first to adapt it, e.g: ripgrep
+#### 풍부한 플러그인 생태계
+nvim에는 상상할 수 있는 모든 것과 상상할 수 없는 모든 것을 위한 플러그인을 개발하는 거대한 커뮤니티가 있습니다. \
+nvim은 다른 IDE가 제공하는 어떤 IDE 기능도 놓치지 않습니다. \
+nvim 플러그인은 IDE 세계에 새로운 기술이 등장했을 때 가장 먼저 "진화"하며, nvim 커뮤니티는 이를 가장 먼저 받아들입니다. 예: ripgrep
 
-You can take a look at the [awesome nvim plugin list](https://github.com/rockerBOO/awesome-neovim). I recommend to "watch" to get updates about new plugins.
+[멋진 nvim 플러그인 목록](https://github.com/rockerBOO/awesome-neovim)을 살펴보세요. 새로운 플러그인에 대한 업데이트를 받으려면 "watch"하는 것을 추천합니다.
 
-#### Be comfortable
-nvim is basically a framework for an editor, it can't do much without plugins but it gives the user the ability to configure the editor in a way they're most comfortable with.
+#### 편안하게 사용하세요
+nvim은 기본적으로 편집기를 위한 프레임워크입니다. 플러그인 없이는 많은 것을 할 수 없지만, 사용자에게 가장 편안한 방식으로 편집기를 구성할 수 있는 기능을 제공합니다.
 
-Imagine sitting on a chair you built exactly to your size. The back rest covers all of your back, the head rest is exactly in the right height and has the perfect shape to support your head and neck. The arm rests match exactly the height of your desk, and the chair is at the perfect height for your legs. \
-This is how I feel when I code in nvim, I sit in a chair I build exactly for my needs, and I can keep improve the way I code because I can improve the way my editor works.
-
----
-
-# How should I start use nvim?
-nvim has a steep learning curve - it takes time and patience to master, you will find that you need to invest time so you can **start** using nvim as your daily driver.
-
-If you are a professional programmer I recommend to start using it in your personal projects and integrate it slowly to your professional workflow. I did it by having my previous editor (Sublime Text) open while nvim was open too.
-
-I started by trying to do simple actions with nvim and moving to sublime when I needed to do complicated stuff that I struggled to do with nvim. After I got comfortable with basic functionality, I started trying to do more complex actions with nvim, sometimes I managed to yet sometimes I also failed and went back to sublime. Eventually I felt more comfortable with nvim and stuck with it all day long.
-
-The bottom line is that it'll take time and effort but eventually it will be worth it, for me it sparked the old feeling of learning how to edit your code, and I still feel it every day.
+자신의 몸에 딱 맞게 만든 의자에 앉아 있다고 상상해 보세요. 등받이는 등을 완전히 덮고, 머리 받침은 정확히 올바른 높이에 있으며 머리와 목을 지지하기에 완벽한 모양입니다. 팔걸이는 책상 높이와 정확히 일치하고, 의자는 다리에 완벽한 높이입니다. \
+이것이 제가 nvim에서 코딩할 때 느끼는 감정입니다. 저는 제 필요에 정확히 맞게 만든 의자에 앉아 있고, 편집기의 작동 방식을 개선할 수 있기 때문에 코딩 방식을 계속 개선할 수 있습니다.
 
 ---
 
-# Neovim Requires Time
-Neovim requires a lot of time learning additional to the learning curve you will have to make bunch of configurations other than the nvim config itself, terminal, nerdfont, plugins, etc, it might be not for you.
+# nvim을 어떻게 사용하기 시작해야 할까요?
+nvim은 가파른 학습 곡선을 가지고 있습니다. 마스터하는 데 시간과 인내가 필요하며, nvim을 일상적인 도구로 **사용하기 시작**하려면 시간을 투자해야 한다는 것을 알게 될 것입니다.
 
-If you are 100% dedicated to learn and use neovim. I strongly recommend to start backing up your work environment config with some kind of dotfiles framework. I use [dotbot](https://github.com/anishathalye/dotbot).
+전문 프로그래머라면 개인 프로젝트에서 사용하기 시작하고 점차적으로 전문적인 워크플로에 통합하는 것을 추천합니다. 저는 이전 편집기(Sublime Text)를 열어둔 채로 nvim도 함께 열어두는 방식으로 시작했습니다.
+
+저는 nvim으로 간단한 작업을 시도하고, nvim으로 하기 어려운 복잡한 작업을 해야 할 때는 Sublime으로 전환하는 방식으로 시작했습니다. 기본 기능에 익숙해진 후에는 nvim으로 더 복잡한 작업을 시도하기 시작했습니다. 때로는 성공했지만 때로는 실패하여 Sublime으로 돌아가기도 했습니다. 결국 nvim이 더 편안해져서 하루 종일 사용하게 되었습니다.
+
+결론은 시간과 노력이 필요하지만 결국에는 그만한 가치가 있다는 것입니다. 저에게는 코드 편집 방법을 배우던 옛 느낌을 되살려 주었고, 지금도 매일 그 느낌을 받고 있습니다.
+
+---
+
+# Neovim은 시간이 필요합니다
+Neovim은 학습 곡선 외에도 nvim 설정 자체, 터미널, 너드 폰트, 플러그인 등 다양한 구성을 해야 하므로 많은 학습 시간이 필요합니다. 여러분에게 맞지 않을 수도 있습니다.
+
+Neovim을 배우고 사용하는 데 100% 전념한다면, 작업 환경 설정을 일종의 dotfiles 프레임워크로 백업하는 것을 강력히 추천합니다. 저는 [dotbot](https://github.com/anishathalye/dotbot)을 사용합니다.

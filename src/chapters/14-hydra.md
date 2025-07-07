@@ -1,22 +1,22 @@
 # [Hydra](https://github.com/anuvyklack/hydra.nvim)
-Hydra is a framework to create a submode inside nvim, a submode is called `Hydra`.
+Hydra는 nvim 내부에 하위 모드(submode)를 만드는 프레임워크이며, 하위 모드를 `Hydra`라고 합니다.
 
-It allows to enter a `body` with a key bind or a lua command and from there it creates a custom keymapping "ontop" of your exist keys to allow you to do various actions. \
-You can create custom ones very easily too.
+키 바인딩이나 lua 명령으로 `body`에 들어가면, 기존 키 위에 사용자 지정 키 매핑을 만들어 다양한 작업을 수행할 수 있게 합니다. \
+사용자 지정 Hydra도 매우 쉽게 만들 수 있습니다.
 
-Hydras for example:
-* [Windows and buffers management](https://github.com/anuvyklack/hydra.nvim/wiki/Windows-and-buffers-management), I think its a must, much more convenient from the vanilla method.
-* [Git](https://github.com/anuvyklack/hydra.nvim/wiki/Git) another tool for git management from inside nvim
-* [You can find all the community hydra's here](https://github.com/anuvyklack/hydra.nvim/wiki)
+Hydra 예시:
+* [창 및 버퍼 관리](https://github.com/anuvyklack/hydra.nvim/wiki/Windows-and-buffers-management), 기본 방법보다 훨씬 편리하여 필수라고 생각합니다.
+* [Git](https://github.com/anuvyklack/hydra.nvim/wiki/Git) nvim 내부에서 git을 관리하는 또 다른 도구입니다.
+* [여기에서 모든 커뮤니티 Hydra를 찾을 수 있습니다](https://github.com/anuvyklack/hydra.nvim/wiki)
 
-Example for a "custom" hydra of mine, which let met scroll through the functions in the buffer quickly:
+버퍼의 함수를 빠르게 스크롤할 수 있게 해주는 제 "사용자 지정" Hydra 예시입니다:
 ```lua
 local ts_move = require'nvim-treesitter.textobjects.move'
--- Move up/down functions
+-- 함수 위/아래 이동
 local curr = Hydra({
 	hint = [[
- _j_ _J_ : up
- _k_ _K_ : down
+ _j_ _J_ : 위로
+ _k_ _K_ : 아래로
   _<Esc>_
 	]],
 	config = {

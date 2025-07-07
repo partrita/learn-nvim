@@ -1,58 +1,58 @@
-# Copy, Paste and Visual Mode
-The default behavior of vim doesn't copy to your OS clipboard, but instead copies to a `register`, which can also be the OS clipboard.
+# 복사, 붙여넣기 및 비주얼 모드
+vim의 기본 동작은 OS 클립보드로 복사하지 않고, 대신 `레지스터`로 복사합니다. 이 레지스터는 OS 클립보드일 수도 있습니다.
 
-## Copy and paste with specifying registers
-To yank (copy) a text, you can copy the text from `NORMAL` mode with the `y` operator combined with a `movement` ,or you can enter `visual` mode with `v` and yank the text with `y`.
+## 레지스터를 지정하여 복사 및 붙여넣기
+텍스트를 yank (복사)하려면, `일반` 모드에서 `y` 연산자와 `이동`을 조합하여 텍스트를 복사하거나, `v`로 `비주얼` 모드에 들어가서 `y`로 텍스트를 복사할 수 있습니다.
 
-A text is copied to the registers when you `change` and `delete` text too.
+텍스트를 `변경`하거나 `삭제`할 때도 텍스트가 레지스터로 복사됩니다.
 
-To paste the yanked result you can use:
-* `p` - paste after the cursor
-* `P` - paste before the cursor
-* `<M-p> (Alt+p)` - paste in insert mode
+복사된 결과를 붙여넣으려면 다음을 사용할 수 있습니다:
+* `p` - 커서 뒤에 붙여넣기
+* `P` - 커서 앞에 붙여넣기
+* `<M-p> (Alt+p)` - 입력 모드에서 붙여넣기
 
-## Visual Modes
-* `v` - Normal Visual mode
-* `V` - Visual Line mode, selects text by lines
-* `<C-v>` - Visual Block mode, selects text by block
+## 비주얼 모드 (Visual Modes)
+* `v` - 일반 비주얼 모드
+* `V` - 비주얼 라인 모드, 줄 단위로 텍스트 선택
+* `<C-v>` - 비주얼 블록 모드, 블록 단위로 텍스트 선택
 
-You can replace text by pasting new text after selecting the text to replace with visual, this action copies the replaced text to a register too.
+비주얼 모드로 교체할 텍스트를 선택한 후 새 텍스트를 붙여넣어 텍스트를 교체할 수 있습니다. 이 작업은 교체된 텍스트도 레지스터로 복사합니다.
 
-## Registers
-To specify a destination for the copy use `"`. \
-For example to copy to register `a` I'll hit these keys: `"ay<movement>"`.
+## 레지스터 (Registers)
+복사 대상을 지정하려면 `"`를 사용합니다. \
+예를 들어 레지스터 `a`로 복사하려면 다음 키를 누릅니다: `"ay<이동>"`.
 
-Same for pasting: `"ap`.
+붙여넣기도 마찬가지입니다: `"ap`.
 
-Use `_` - as the `black hole` register, when you want to delete a text without transferring it to a register.
+텍스트를 레지스터로 옮기지 않고 삭제하고 싶을 때는 `_` (블랙홀 레지스터)를 사용합니다.
 
-There are many things you can do with registers, I suggest to briefly read `:help registers`.
+레지스터로 할 수 있는 많은 작업이 있습니다. `:help registers`를 간략하게 읽어보는 것을 제안합니다.
 
-### Binds to delete/change/replace without yanking.
+### 복사 없이 삭제/변경/교체하는 바인딩
 ```lua
-map('x', '<leader>p', '"_dP', 'Replace without yanking')
+map('x', '<leader>p', '"_dP', '복사 없이 교체')
 
-map('n', '<leader>d', '"_d', 'Delete without yanking') -- e.g <leader>dd deletes the current line without yanking it
-map('n', '<leader>D', '"_D', 'Delete until EOL without yanking')
+map('n', '<leader>d', '"_d', '복사 없이 삭제') -- 예: <leader>dd는 현재 줄을 복사하지 않고 삭제
+map('n', '<leader>D', '"_D', '줄 끝까지 복사 없이 삭제')
 
-map('n', '<leader>c', '"_c', 'Change without yanking')
-map('n', '<leader>C', '"_C', 'Change until EOL without yanking')
+map('n', '<leader>c', '"_c', '복사 없이 변경')
+map('n', '<leader>C', '"_C', '줄 끝까지 복사 없이 변경')
 ```
 
-## Using the OS clipboard
-`+` is the OS clipboard register, you can yank to it and you can paste from it.
+## OS 클립보드 사용
+`+`는 OS 클립보드 레지스터이며, 여기에 복사하거나 여기서 붙여넣을 수 있습니다.
 
-I use these binds to use the OS clipboard without too many key presses:
+저는 OS 클립보드를 적은 키 입력으로 사용하기 위해 다음 바인딩을 사용합니다:
 ```lua
-map('', '<leader>y', '"+y', 'Yank to clipboard') -- E.g: <leader>yy will yank current line to os clipboard
-map('', '<leader>Y', '"+y$', 'Yank until EOL to clipboard')
+map('', '<leader>y', '"+y', '클립보드로 복사') -- 예: <leader>yy는 현재 줄을 OS 클립보드로 복사
+map('', '<leader>Y', '"+y$', '줄 끝까지 클립보드로 복사')
 
-map('n', '<leader>p', '"+p', 'Paste after cursor from clipboard')
-map('n', '<leader>P', '"+P', 'Paste before cursor from clipboard')
+map('n', '<leader>p', '"+p', '클립보드에서 커서 뒤에 붙여넣기')
+map('n', '<leader>P', '"+P', '클립보드에서 커서 앞에 붙여넣기')
 ```
 
-## Plugins
-### Put/Yank Improvements
-* [yanky.nvim](https://github.com/gbprod/yanky.nvim) to cycle fast in my copy history after pasting instead of using the `registers`.
-* [peekup](https://github.com/gennaro-tedesco/nvim-peekup) - dynamically interact with vim registers.
-* [registers.nvim](https://github.com/tversteeg/registers.nvim) to see the registers before yanking from/to them.
+## 플러그인
+### 붙여넣기/복사 개선
+* [yanky.nvim](https://github.com/gbprod/yanky.nvim) - `레지스터`를 사용하는 대신 붙여넣기 후 복사 기록을 빠르게 순환합니다.
+* [peekup](https://github.com/gennaro-tedesco/nvim-peekup) - vim 레지스터와 동적으로 상호 작용합니다.
+* [registers.nvim](https://github.com/tversteeg/registers.nvim) - 레지스터에서 복사하거나 레지스터로 복사하기 전에 레지스터를 봅니다.
