@@ -1,14 +1,14 @@
 # 기본 설정
-nvim의 강점 중 하나는 높은 설정 유연성입니다. 모든 것을 사용자 정의할 수 있습니다. \
+nvim의 강점 중 하나는 높은 설정 유연성입니다. 모든 것을 사용자 정의할 수 있습니다. 
 보기 좋고 불필요한 버튼이나 요소로 채워지지 않도록 편집기를 설정하세요.
 
-자신만의 설정을 만드는 것을 추천하지만, 시간과 노력이 필요합니다. \
+자신만의 설정을 만드는 것을 추천하지만, 시간과 노력이 필요합니다. 
 [고급 설정 챕터](https://github.com/ofirgall/learn-nvim/blob/master/chapters/08-advanced-config.md)에서 장점에 대해 이야기하겠지만, 저처럼 설정에 열광하는 사람이 아니라면 지금은 사전 구성된 설정을 사용하는 것을 추천합니다.
 
 ---
 
 ## 터미널 에뮬레이터 설정
-nvim은 GUI 프론트엔드 또는 원래 의도된 방식인 터미널 에뮬레이터에서 실행할 수 있습니다. \
+nvim은 GUI 프론트엔드 또는 원래 의도된 방식인 터미널 에뮬레이터에서 실행할 수 있습니다. 
 최신 크로스 플랫폼 터미널 에뮬레이터 중 하나를 사용하는 것을 추천합니다:
 
 * [Alacritty](https://github.com/alacritty/alacritty) - 분할 및 세션 관리를 위해 [tmux](https://github.com/tmux/tmux)/[i3](https://github.com/i3/i3)와 함께 사용하는 것을 추천합니다 (저는 Alacritty + tmux를 사용합니다).
@@ -16,11 +16,11 @@ nvim은 GUI 프론트엔드 또는 원래 의도된 방식인 터미널 에뮬�
 * [Wezterm](https://github.com/wez/wezterm) - Lua로 설정하는 터미널입니다. 개인적으로 디자인, 특히 커서 동작 방식이 마음에 들지 않지만, 커뮤니티에서는 좋아하는 것 같습니다.
 
 ### 너드 폰트 (Nerdfont)
-터미널에서 아이콘을 지원하려면 [너드 폰트](https://www.nerdfonts.com/)를 설치하는 것이 좋습니다. 많은 플러그인이 이를 활용합니다. \
+터미널에서 아이콘을 지원하려면 [너드 폰트](https://www.nerdfonts.com/)를 설치하는 것이 좋습니다. 많은 플러그인이 이를 활용합니다. 
 저는 [CascadiaCode](https://www.programmingfonts.org/#cascadia-code)를 사용하며, [JetBrainsMono](https://www.programmingfonts.org/#jetbrainsmono)도 좋습니다.
 
 ### 키 바인딩 제한
-`ascii` 때문에 터미널은 `Ctrl+Shift+<X>` 키 바인딩을 지원하지 않습니다. [그 이유를 설명하는 훌륭한 댓글](https://github.com/tmux/tmux/issues/674#issuecomment-263157843)이 있습니다. \
+`ascii` 때문에 터미널은 `Ctrl+Shift+<X>` 키 바인딩을 지원하지 않습니다. [그 이유를 설명하는 훌륭한 댓글](https://github.com/tmux/tmux/issues/674#issuecomment-263157843)이 있습니다. 
 일부 터미널에서는 해결 방법을 사용할 수 있지만, 필수는 아닙니다 (저는 Ctrl+Shift+X 바인딩을 사용하지 않습니다).
 
 #### macOS에서 Alt로 옵션 키 사용
@@ -31,7 +31,7 @@ nvim은 GUI 프론트엔드 또는 원래 의도된 방식인 터미널 에뮬�
 ---
 
 ## nvim 설치 방법
-[최신 릴리스](https://github.com/neovim/neovim/releases)를 설치하는 것을 추천합니다. `Nvim development`는 나이틀리 빌드입니다. \
+[최신 릴리스](https://github.com/neovim/neovim/releases)를 설치하는 것을 추천합니다. `Nvim development`는 나이틀리 빌드입니다. 
 꽤 안정적이고 자주 깨지지 않는 [나이틀리 빌드](https://github.com/neovim/neovim/releases/tag/nightly)를 설치할 수도 있지만, 초보자로서 버그 문제로 골치 아프고 싶지는 않을 것입니다.
 
 ---
@@ -45,8 +45,8 @@ nvim은 GUI 프론트엔드 또는 원래 의도된 방식인 터미널 에뮬�
 #### LunarVim
 개인적으로 사전 구성된 설정을 사용하는 것을 건너뛰었지만, 시작점으로 사용하는 것을 강력히 추천합니다. [LunarVim](https://github.com/LunarVim/LunarVim)이 가장 시작하기 쉽습니다. [설치 링크](https://www.lunarvim.org/docs/installation).
 
-기본 설정을 읽고 자신의 취향에 맞게 편집해야 합니다. \
-설정을 열려면 `Space`, `SHIFT+L`, `c`를 누르세요. \
+기본 설정을 읽고 자신의 취향에 맞게 편집해야 합니다. 
+설정을 열려면 `Space`, `SHIFT+L`, `c`를 누르세요. 
 키 바인딩을 보려면 `Space`, `SHIFT+L`, `k`를 누르세요.
 
 ---
@@ -69,7 +69,7 @@ lvim.plugins = {
 }
 ```
 
-`lvim.plugins`는 [packer](https://github.com/wbthomason/packer.nvim)로 전달되며, `folke/tokyonight.nvim`은 [github.com/folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)의 약자입니다. \
+`lvim.plugins`는 [packer](https://github.com/wbthomason/packer.nvim)로 전달되며, `folke/tokyonight.nvim`은 [github.com/folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)의 약자입니다. 
 즉, 플러그인이 `use { 'plugin_author/plugin_name', more_options }`로 설치하라고 하면, `{ 'plugin_author/plugin_name', more_options }`를 복사하면 됩니다.
 
 _**참고**_: LunarVim은 설정이 변경되면 자동으로 `:PackerInstall`을 실행합니다.
@@ -84,7 +84,7 @@ _**참고**_: LunarVim은 설정이 변경되면 자동으로 `:PackerInstall`�
 #### 플러그인 설정 방법
 일반적으로 플러그인은 플러그인의 동작을 설정하는 `setup` 함수를 제공하며, 대부분의 플러그인은 `setup` 함수가 호출되지 않으면 활성화되지 않습니다.
 
-일반적으로 `setup` 함수는 `테이블`을 받으며, 대부분의 플러그인은 표준 재정의 방식을 사용합니다. 전달하는 테이블의 키는 기본값을 재정의하고, 다른 키는 기본값을 유지합니다. \
+일반적으로 `setup` 함수는 `테이블`을 받으며, 대부분의 플러그인은 표준 재정의 방식을 사용합니다. 전달하는 테이블의 키는 기본값을 재정의하고, 다른 키는 기본값을 유지합니다. 
 기본값은 일반적으로 플러그인 `README`와 `:help <플러그인>`에 있습니다.
 
 _**참고**_: `setup` 함수 위에 GitHub 약자를 주석으로 추가하는 것을 추천합니다. [open.nvim](https://github.com/ofirgall/open.nvim)을 사용하여 플러그인 저장소에 빠르게 접근할 수 있습니다.
@@ -122,7 +122,7 @@ vim 변수에 대한 자세한 내용은 `:help internal-variables`에서 읽을
 * 다른 언어는 [awesome-neovim](https://github.com/rockerBOO/awesome-neovim#programming-languages-support)을 확인하세요.
 
 ##### [auto-save.nvim](https://github.com/Pocco81/auto-save.nvim)
-다른 텍스트 편집기에서 자동 저장을 사용하는 것을 싫어했지만, vim은 모드가 있기 때문에 텍스트가 언제 변경되었는지 정확히 알 수 있습니다. \
+다른 텍스트 편집기에서 자동 저장을 사용하는 것을 싫어했지만, vim은 모드가 있기 때문에 텍스트가 언제 변경되었는지 정확히 알 수 있습니다. 
 입력 모드를 나올 때 트리거되는 `InsertLeave`와 일반 모드에서 텍스트가 변경될 때 트리거되는 `TextChanged` 시에 저장합니다.
 
 자동 저장 + 자동 포맷 = 성가신 동작. 자동 포맷을 비활성화하세요. 버퍼를 전환할 때 포맷하도록 [간단한 플러그인](https://github.com/ofirgall/format-on-leave.nvim)을 만들었습니다.
@@ -132,7 +132,7 @@ LunarVim에서 자동 포맷을 비활성화하는 방법:
 lvim.format_on_save = false
 ```
 
-자동 저장 + 실시간 설정 새로고침 = 성가신 동작. 실시간 설정 새로고침을 좋아한다면 설정 파일에서 자동 저장을 비활성화하세요.\
+자동 저장 + 실시간 설정 새로고침 = 성가신 동작. 실시간 설정 새로고침을 좋아한다면 설정 파일에서 자동 저장을 비활성화하세요.
 LunarVim에서 이를 수행하는 예:
 
 ```lua
@@ -160,12 +160,12 @@ require("auto-save").setup {
 ---
 
 ## 옵션 (Options)
-옵션은 nvim의 동작을 제어하며, `boolean`, `number` 또는 `string`으로 설정할 수 있습니다. \
-옵션을 설정하려면 `:set <옵션>`을 입력하고, 옵션의 현재 값을 보려면 `:set <옵션>?`을 사용하세요. \
-boolean 옵션은 `:set <옵션>`으로 활성화하고 `:set no<옵션>`으로 비활성화합니다. \
+옵션은 nvim의 동작을 제어하며, `boolean`, `number` 또는 `string`으로 설정할 수 있습니다. 
+옵션을 설정하려면 `:set <옵션>`을 입력하고, 옵션의 현재 값을 보려면 `:set <옵션>?`을 사용하세요. 
+boolean 옵션은 `:set <옵션>`으로 활성화하고 `:set no<옵션>`으로 비활성화합니다. 
 예: `:set relativenumber`는 `relativenumber`를 활성화하고 `:set norelativenumber`는 비활성화합니다.
 
-모든 옵션에는 도움말 태그가 있습니다. 예를 들어 `:h relativenumber` \
+모든 옵션에는 도움말 태그가 있습니다. 예를 들어 `:h relativenumber` 
 옵션 목록은 `:h option-list`에 있습니다.
 
 nvim에서는 `vim.opt`를 통해 옵션에 접근할 수 있습니다.
@@ -192,7 +192,7 @@ opt.foldlevelstart = 99 -- 자동 접기 안 함
 ---
 
 ## 키 매핑 (Key mapping)
-키 맵은 특정 모드에 대해 설정할 수 있습니다. \
+키 맵은 특정 모드에 대해 설정할 수 있습니다. 
 중요한 모드들:
 * `n` - 일반 모드
 * `i` - 입력 모드
@@ -230,7 +230,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 ```
 
-플러그인도 사용자 지정 자동 명령을 추가할 수 있습니다! \
+플러그인도 사용자 지정 자동 명령을 추가할 수 있습니다! 
 모든 내장 자동 명령은 `:h autocmd-list`를 참조하세요.
 
 자세한 설명은 `:h nvim_create_autocmd`를 읽어보세요.
@@ -262,8 +262,8 @@ export EDITOR='nvim'
 ### [LSP](https://microsoft.github.io/language-server-protocol/)
 > 언어 서버 프로토콜(LSP)의 기본 아이디어는 이러한 서버와 개발 도구가 통신하는 프로토콜을 표준화하는 것입니다. 이러한 방식으로 단일 언어 서버를 여러 개발 도구에서 재사용할 수 있으며, 개발 도구는 최소한의 노력으로 여러 언어를 지원할 수 있습니다.
 
-즉, nvim/sublime/vscode가 동일한 Intellisense를 얻습니다. \
-서버는 PC에서 로컬로 실행되며 빠르게 실행되도록 최적화되어 있습니다. \
+즉, nvim/sublime/vscode가 동일한 Intellisense를 얻습니다. 
+서버는 PC에서 로컬로 실행되며 빠르게 실행되도록 최적화되어 있습니다. 
 nvim은 가장 빠른 lsp 클라이언트를 구현합니다.
 
 [언어별 서버 목록](https://microsoft.github.io/language-server-protocol/implementors/servers/)

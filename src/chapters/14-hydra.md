@@ -1,7 +1,7 @@
 # [Hydra](https://github.com/anuvyklack/hydra.nvim)
 Hydra는 nvim 내부에 하위 모드(submode)를 만드는 프레임워크이며, 하위 모드를 `Hydra`라고 합니다.
 
-키 바인딩이나 lua 명령으로 `body`에 들어가면, 기존 키 위에 사용자 지정 키 매핑을 만들어 다양한 작업을 수행할 수 있게 합니다. \
+키 바인딩이나 lua 명령으로 `body`에 들어가면, 기존 키 위에 사용자 지정 키 매핑을 만들어 다양한 작업을 수행할 수 있게 합니다. 
 사용자 지정 Hydra도 매우 쉽게 만들 수 있습니다.
 
 Hydra 예시:

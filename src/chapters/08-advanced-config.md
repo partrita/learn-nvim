@@ -21,7 +21,7 @@ _**참고**_: 사전 구성된 설정을 계속 사용하는 경우 다음 챕�
 ---
 
 ## 왜 프로그래밍 언어를 사용하여 편집기를 설정해야 할까요?
-처음에는 편집기를 설정하기 위해 왜 Lua를 배우고 사용해야 하는지 이해하지 못했지만, 곧 그것이 편집기를 설정하는 올바른 방법이라는 것을 이해하게 되었습니다. \
+처음에는 편집기를 설정하기 위해 왜 Lua를 배우고 사용해야 하는지 이해하지 못했지만, 곧 그것이 편집기를 설정하는 올바른 방법이라는 것을 이해하게 되었습니다. 
 코딩 지식을 활용하여 편집기에서의 경험을 향상시킬 수 있는 능력을 제공합니다.
 
 이에 대한 훌륭한 기본 예는 제 `정의로 이동` 키 바인딩입니다.
@@ -244,20 +244,20 @@ nvim이 설정을 로드하는 방법을 이해하기 위해 간단한 폴더 �
 이 가이드를 읽으면서 이 폴더 구조를 다시 만들고 파일을 작성하는 것을 제안합니다.
 
 ### 설정 구성 (Config Setup)
-`settings.lua`부터 시작하겠습니다. vim 옵션(`vim.opt.*`)을 `settings.lua`로 옮기세요. \
+`settings.lua`부터 시작하겠습니다. vim 옵션(`vim.opt.*`)을 `settings.lua`로 옮기세요. 
 이제 `init.lua`가 `settings.lua`를 다음과 같이 요구하도록 설정하세요:
 ```lua
 require('settings')
 ```
 
-nvim을 다시 시작하고 vim 옵션이 설정되었는지 확인하세요. \
+nvim을 다시 시작하고 vim 옵션이 설정되었는지 확인하세요. 
 `print`를 사용할 수 있다는 것을 기억하세요.
 
 그 후에는 `keymaps.lua`와 `autocmds.lua`를 작성하는 것을 추천합니다.
 
 #### 첫 번째 플러그인 설치
-`plugin_list.lua` 작성부터 시작하겠습니다. 이 파일에서 설치된 플러그인을 관리합니다. \
-여러 패키지 관리자가 있으며, 잘 알려진 것 중 하나는 [packer](https://github.com/wbthomason/packer.nvim)입니다. \
+`plugin_list.lua` 작성부터 시작하겠습니다. 이 파일에서 설치된 플러그인을 관리합니다. 
+여러 패키지 관리자가 있으며, 잘 알려진 것 중 하나는 [packer](https://github.com/wbthomason/packer.nvim)입니다. 
 요약: [이 내용](https://github.com/wbthomason/packer.nvim#bootstrapping)을 `plugin_list.lua`에 복사하여 붙여넣고 `-- My plugins here` 주석 아래에 `use '{github user}/{repo}'`를 추가하세요.
 
 nvim을 재설정하면 `:Packer` 명령이 존재하지 않으므로, 다음과 같이 `init.lua`에서 요구해야 합니다:

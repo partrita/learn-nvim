@@ -1,5 +1,5 @@
 # 디버그
-LSP와 동일한 해결책이 디버깅에도 존재하며, 이를 `DAP`(디버그 어댑터 프로토콜)라고 합니다. \
+LSP와 동일한 해결책이 디버깅에도 존재하며, 이를 `DAP`(디버그 어댑터 프로토콜)라고 합니다. 
 이를 통합하려면 [nvim-dap](https://github.com/mfussenegger/nvim-dap)를 설치해야 합니다.
 
 모든 좋은 nvim 플러그인과 마찬가지로 [nvim-dap](https://github.com/mfussenegger/nvim-dap)는 프레임워크이며 이를 확장하는 플러그인이 있습니다.

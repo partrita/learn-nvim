@@ -1,4 +1,4 @@
-name: Github Pages and Release PDF
+name: Github Release PDF
 
 on:
   push:
