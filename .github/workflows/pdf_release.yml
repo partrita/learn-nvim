@@ -24,7 +24,7 @@ jobs:
     - name: Install Pandoc
       run: |
         sudo apt-get update
-        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex
+        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-noto-cjk
 
     - name: Create PDF directory
       run: mkdir -p pdf
