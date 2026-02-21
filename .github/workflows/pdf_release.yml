@@ -24,7 +24,7 @@ jobs:
     - name: Install Pandoc and Noto CJK Fonts
       run: |
         sudo apt-get update
-        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-noto-cjk texlive-lang-cjk # Added texlive-lang-cjk
+        sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-noto-cjk fonts-nanum-coding texlive-lang-cjk librsvg2-bin # Added fonts-nanum-coding and librsvg2-bin
 
     - name: Create PDF directory
       run: mkdir -p pdf
@@ -32,7 +32,7 @@ jobs:
     - name: Convert HTML to PDF using Pandoc
       run: |
         # Convert the print.html (entire book) to a single PDF
-        pandoc book/html/print.html --resource-path=book/html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR" --toc
+        pandoc book/html/print.html --resource-path=book/html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="NanumGothicCoding" --toc
 
     - name: Upload PDF artifact (for pull requests and pushes to main)
       if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
