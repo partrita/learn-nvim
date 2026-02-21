@@ -31,8 +31,8 @@ jobs:
 
     - name: Convert HTML to PDF using Pandoc
       run: |
-        # Convert the main index.html (entire book) to a single PDF
-        pandoc book/index.html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR" --toc
+        # Convert the print.html (entire book) to a single PDF
+        pandoc book/html/print.html --resource-path=book/html -o pdf/output.pdf --pdf-engine=xelatex -V mainfont="Noto Sans CJK KR" -V sansfont="Noto Sans CJK KR" -V monofont="Noto Mono CJK KR" --toc
 
     - name: Upload PDF artifact (for pull requests and pushes to main)
       if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
