@@ -1,9 +1,9 @@
 [book]
 authors = ["Ofir Gal"]
 language = "ko"
-multilingual = false
 src = "src"
 title = "Neovim 배우기"
 [output.html]
 
 [output.pdf]
+optional = true
