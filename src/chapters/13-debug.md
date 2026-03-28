@@ -1,12 +1,17 @@
-# 디버그
-LSP와 동일한 해결책이 디버깅에도 존재하며, 이를 `DAP`(디버그 어댑터 프로토콜)라고 합니다. 
-이를 통합하려면 [nvim-dap](https://github.com/mfussenegger/nvim-dap)를 설치해야 합니다.
+# 디버깅 환경 구축
+코드 작성만큼이나 중요한 것이 바로 디버깅입니다. Neovim에서도 IDE 못지않은 강력한 디버깅 환경을 구축할 수 있습니다. 
 
-모든 좋은 nvim 플러그인과 마찬가지로 [nvim-dap](https://github.com/mfussenegger/nvim-dap)는 프레임워크이며 이를 확장하는 플러그인이 있습니다.
+---
 
-확장 기능:
-* [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) - 디버깅을 위한 대화형 UI이며, 필수입니다!
-* [dap-buddy.nvim](https://github.com/Pocco81/dap-buddy.nvim) - DAP 서버를 설치하며, 서버를 수동으로 설치하는 것을 선호한다면 이 단계를 건너뛸 수 있습니다.
-* [persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim) - nvim 재시작 시 중단점을 저장합니다.
-* [goto-breakpoints.nvim](https://github.com/ofirgall/goto-breakpoints.nvim) - 중단점을 순환하는 쌍 바인딩이며, 제가 만든 플러그인입니다 :)
-* [더 많은 확장 기능은 여기에서 찾을 수 있습니다](https://github.com/rockerBOO/awesome-neovim#debugging)
+## DAP (Debug Adapter Protocol)
+LSP가 코드 분석을 위한 표준이라면, **DAP**는 디버깅을 위한 표준 프로토콜입니다. Neovim에서 이를 활용하려면 [nvim-dap](https://github.com/mfussenegger/nvim-dap) 플러그인이 필요합니다.
+
+nvim-dap은 디버깅의 핵심 로직을 담당하는 프레임워크이며, 다양한 확장 플러그인을 통해 기능을 완성합니다.
+
+### 추천 확장 플러그인
+* **[nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)**: 디버깅 시 변수 목록, 호출 스택, 중단점 등을 시각적으로 보여주는 필수 UI 플러그인입니다.
+* **[mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim)**: Mason을 통해 디버그 어댑터를 간편하게 설치하고 관리하게 해줍니다.
+* **[persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim)**: Neovim을 껐다 켜도 설정해둔 중단점(Breakpoint)이 사라지지 않게 저장해 줍니다.
+* **[goto-breakpoints.nvim](https://github.com/ofirgall/goto-breakpoints.nvim)**: 중단점 사이를 단축키로 빠르게 이동할 수 있게 해줍니다. (제가 직접 만든 플러그인입니다!)
+
+더 많은 디버깅 관련 도구는 [awesome-neovim](https://github.com/rockerBOO/awesome-neovim#debugging)에서 찾아보실 수 있습니다.

@@ -1,68 +1,63 @@
-# 분할 및 실제 탭
+# 화면 분할과 탭 활용
 
-## 분할 (Splits) 또는 창 (Windows)
-[챕터 1](01-the-vim-language.md)에서 분할이 무엇인지 이미 다루었지만, 제어하는 방법은 다루지 않았습니다.
+## 화면 분할 (Splits) 또는 창 (Windows)
+[챕터 1](01-the-vim-language.md)에서 화면 분할을 잠깐 언급했지만, 이번에는 이를 제어하는 구체적인 방법을 알아보겠습니다.
 
-* `:vsplit`/`:vs` - 수직 분할을 만듭니다.
-* `:split` - 수평 분할을 만듭니다.
-* `:q` - 분할을 닫습니다.
-* `<C-w>` + `h`/`j`/`k`/`l` - 화살표 방향으로 분할을 이동합니다.
-* `<C-w>=` - 모든 분할의 크기를 동일하게 조정합니다.
-* `<C-w>>` - 너비를 늘립니다.
-* `<C-w><` - 너비를 줄입니다.
-* `<C-w>+` - 높이를 늘립니다.
-* `<C-w>-` - 높이를 줄입니다.
+* `:vsplit` (또는 `:vs`): 화면을 세로로 나눕니다.
+* `:split` (또는 `:sp`): 화면을 가로로 나눕니다.
+* `:q`: 현재 분할된 창을 닫습니다.
+* `Ctrl + w` 뒤에 `h/j/k/l`: 원하는 방향의 창으로 이동합니다.
+* `Ctrl + w` 뒤에 `=`: 모든 창의 크기를 똑같이 맞춥니다.
+* `Ctrl + w` 뒤에 `>` / `<`: 현재 창의 너비를 늘리거나 줄입니다.
+* `Ctrl + w` 뒤에 `+` / `-`: 현재 창의 높이를 늘리거나 줄입니다.
 
-### 설정 (Configure)
-분할을 빠르게 이동, 생성 및 닫는 방법을 매핑하는 것을 추천합니다. (사전 구성된 설정을 사용하는 경우 일부 바인딩이 이미 설정되어 있을 수 있습니다.)
+### 편리한 단축키 설정
+창 사이를 이동할 때마다 `Ctrl + w`를 누르는 건 다소 번거로운 일입니다. 다음과 같이 단축키를 지정해 두면 한결 편안하게 창을 오갈 수 있습니다.
 
-제 매핑:
 ```lua
-map({'n', 't'}, '<C-h>', '<C-w>h')
-map({'n', 't'}, '<C-j>', '<C-w>j')
-map({'n', 't'}, '<C-k>', '<C-w>k')
-map({'n', 't'}, '<C-l>', '<C-w>l')
+-- 창 이동 간소화
+vim.keymap.set({'n', 't'}, '<C-h>', '<C-w>h')
+vim.keymap.set({'n', 't'}, '<C-j>', '<C-w>j')
+vim.keymap.set({'n', 't'}, '<C-k>', '<C-w>k')
+vim.keymap.set({'n', 't'}, '<C-l>', '<C-w>l')
 
-map('n', '<M-e>', '<cmd>vsplit<cr>')
-map('n', '<M-o>', '<cmd>split<cr>')
-
-map('n', '<M-q>', '<cmd>q<cr>')
+-- 빠른 화면 분할 및 닫기
+vim.keymap.set('n', '<M-e>', '<cmd>vsplit<cr>') -- Alt+e
+vim.keymap.set('n', '<M-o>', '<cmd>split<cr>')  -- Alt+o
+vim.keymap.set('n', '<M-q>', '<cmd>q<cr>')      -- Alt+q
 ```
 
-vim의 기본 분할 방향은 오늘날의 표준과 다릅니다. 이를 수정하려면 설정에 다음을 추가하세요:
+또한 새로 분할된 창이 현대적인 방식대로 오른쪽이나 아래쪽에서 열리도록 설정하는 걸 추천합니다.
 ```lua
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 ```
 
-#### 플러그인
-tmux를 사용하는 경우 [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)을 사용하여 vim 안팎으로 tmux 창 간을 원활하게 이동하는 것을 강력히 추천합니다.
+#### 추천 플러그인
+tmux를 사용 중이라면 [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)을 꼭 써보세요. Neovim의 창과 tmux의 패널 사이를 마치 하나의 프로그램처럼 매끄럽게 넘나들 수 있게 해줍니다.
 
 ---
 
-## 실제 탭 (Actual Tabs)
-실제 탭(다른 IDE에서처럼)을 구현하려면 `bufferline`/`tabline` 플러그인을 사용해야 합니다.
+## 실제 탭 (Actual Tabs) 활용
+Vim에서의 탭은 다른 IDE의 탭과는 개념이 조금 다릅니다. 우리가 흔히 생각하는 '열린 파일 목록'으로서의 탭을 쓰려면 별도의 플러그인이 필요합니다.
 
-사전 구성된 설정에는 이미 하나가 있을 수 있지만, [여기](https://github.com/rockerBOO/awesome-neovim#tabline)에서 목록을 볼 수 있습니다. 저는 [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)을 사용합니다.
+커뮤니티에는 수많은 [탭라인(Tabline) 플러그인](https://github.com/rockerBOO/awesome-neovim#tabline)이 존재하며, 가장 인기 있는 선택지는 [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)입니다.
 
-탭을 빠르게 전환, 순환 및 닫는 키를 매핑해야 합니다.
+### 탭 제어를 위한 단축키
+탭을 빠르게 전환하거나 닫는 단축키를 설정해 두면 업무 효율이 크게 올라갑니다.
 
-제 설정:
 ```lua
--- Tabline 바인딩
-map('n', '<C-q>', function() require('bufdelete').bufdelete(0, true) end) -- shift+Quit 현재 탭 닫기
-map('n', 'g1', function() require('bufferline').go_to_buffer(1, true) end)
-map('n', 'g2', function() require('bufferline').go_to_buffer(2, true) end)
-map('n', 'g3', function() require('bufferline').go_to_buffer(3, true) end)
-map('n', 'g4', function() require('bufferline').go_to_buffer(4, true) end)
-map('n', 'g5', function() require('bufferline').go_to_buffer(5, true) end)
-map('n', 'g6', function() require('bufferline').go_to_buffer(6, true) end)
-map('n', 'g7', function() require('bufferline').go_to_buffer(7, true) end)
-map('n', 'g8', function() require('bufferline').go_to_buffer(8, true) end)
-map('n', 'g9', function() require('bufferline').go_to_buffer(9, true) end)
-map('n', 'g0', function() require('bufferline').go_to_buffer(10, true) end)
-map('n', '<M-j>', '<cmd>BufferLineCyclePrev<CR>') -- Alt+j 왼쪽으로 이동
-map('n', '<M-k>', '<cmd>BufferLineCycleNext<CR>') -- Alt+k 오른쪽으로 이동
-map('n', '<M-J>', '<cmd>BufferLineMovePrev<CR>') -- Alt+Shift+j 현재 탭을 왼쪽으로 이동
-map('n', '<M-K>', '<cmd>BufferLineMoveNext<CR>') -- Alt+Shift+k 현재 탭을 오른쪽으로 이동
+-- 버퍼라인(탭) 조작 예시
+vim.keymap.set('n', '<M-j>', '<cmd>BufferLineCyclePrev<CR>') -- Alt+j 이전 탭
+vim.keymap.set('n', '<M-k>', '<cmd>BufferLineCycleNext<CR>') -- Alt+k 다음 탭
+vim.keymap.set('n', '<M-J>', '<cmd>BufferLineMovePrev<CR>')  -- Alt+Shift+j 탭 순서 앞으로
+vim.keymap.set('n', '<M-K>', '<cmd>BufferLineMoveNext<CR>')  -- Alt+Shift+k 탭 순서 뒤로
+
+-- 숫자 키로 특정 탭 바로 가기 (1~9)
+for i = 1, 9 do
+    vim.keymap.set('n', 'g' .. i, function() 
+        require('bufferline').go_to_buffer(i, true) 
+    end)
+end
 ```
+화면 분할과 탭 활용에 익숙해지면, 여러 파일을 동시에 오가는 작업이 이전과는 비교할 수 없을 정도로 쾌적해질 것입니다.
